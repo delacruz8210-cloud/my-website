@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crush Mo 'Ko?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f0eeee, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+      margin-right: 15px;
+    }
+
+    #noBtn {
+      background-color: #555;
+      color: white;
+      position: absolute; /* IMPORTANT */
+    }
+
+    #result {
+      display: none;
+      text-align: center;
+    }
+
+    #result h2 {
+      font-size: 2rem;
+      color: #ff1e56;
+    }
+
+    #result img {
+      margin-top: 15px;
+      width: 240px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="questionBox">
+    <h1>Crush moko?</h1>
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+
+  <div id="result">
+    <h2>Tagumpay HAHAHAHAHA</h2>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const questionBox = document.getElementById("questionBox");
+    const result = document.getElementById("result");
+
+    // Place NO button initially
+    noBtn.style.left = "55%";
+    noBtn.style.top = "55%";
+
+    function moveButton() {
+      const maxX = window.innerWidth - noBtn.offsetWidth;
+      const maxY = window.innerHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // Works for desktop (hover)
+    noBtn.addEventListener("mouseenter", moveButton);
+
+    // Works for mobile (touch)
+    noBtn.addEventListener("touchstart", moveButton);
+
+    yesBtn.addEventListener("click", () => {
+      questionBox.style.display = "none";
+      result.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
